@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vibe Wrist — Premium Watches</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS RESET ===== */
+    :root{
+      --bg:#0f1115;
+      --card:#0f1720;
+      --muted:#98a0aa;
+      --accent:#ffd166;
+      --accent-2:#06d6a0;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1200px;
+      --radius:14px;
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg, #060709 0%, #0b0f14 60%);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+    .container{max-width:var(--max-width);width:100%}
+
+    /* ===== HEADER ===== */
+    header{
+      display:flex;align-items:center;justify-content:space-between;padding:18px 0 28px;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#08101a;font-family:'Playfair Display',serif;font-size:20px;box-shadow:var(--shadow);
+    }
+    .brand h1{font-size:20px;letter-spacing:0.4px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:var(--accent);background:rgba(255,255,255,0.02)}
+
+    .cta{display:flex;gap:10px}
+    .btn{background:linear-gradient(90deg,var(--accent),#ffb86b);border:none;padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(255,185,102,0.12)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* ===== HERO ===== */
+    .hero{display:grid;grid-template-columns:1fr 480px;gap:40px;align-items:center;padding:36px 0}
+    .hero-left h2{font-family:'Playfair Display',serif;font-size:44px;margin-bottom:12px}
+    .hero-left p{color:var(--muted);max-width:60%}
+    .hero-actions{margin-top:22px;display:flex;gap:12px;align-items:center}
+
+    .hero-right{position:relative}
+    .watch-card{
+      width:430px;height:430px;border-radius:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--shadow);
+      display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)
+    }
+    .watch-mock{
+      width:320px;height:320px;border-radius:50%;background:conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.04), rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--muted);
+    }
+    .badge{position:absolute;left:18px;top:18px;background:var(--accent);color:#08101a;padding:6px 10px;border-radius:999px;font-weight:700}
+
+    /* ===== FEATURE HIGHLIGHTS ===== */
+    .features{display:flex;gap:18px;margin:32px 0}
+    .feature{background:var(--glass);padding:14px;border-radius:12px;flex:1;border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{font-size:16px}
+    .feature p{color:var(--muted);margin-top:8px;font-size:14px}
+
+    /* ===== PRODUCT GRID ===== */
+    .section{margin:48px 0}
+    .section h3{font-size:22px;margin-bottom:12px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 20px rgba(0,0,0,0.6);display:flex;flex-direction:column;gap:12px}
+    .card .img{height:220px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#08121a}
+    .card .img img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .product-meta{display:flex;justify-content:space-between;align-items:center}
+    .price{font-weight:700}
+    .stars{color:var(--accent);font-weight:700}
+    .card p{color:var(--muted);font-size:14px}
+
+    /* ===== ABOUT & CONTACT ===== */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .about{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px}
+    .contact-form{background:var(--card);padding:22px;border-radius:12px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
+    textarea{min-height:120px}
+
+    /* ===== FOOTER ===== */
+    footer{margin-top:40px;padding:28px 0;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+    .socials{display:flex;gap:12px}
+    .chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px}
+      .hero-left p{max-width:85%}
+      .products{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      body{padding:18px}
+      .hero{grid-template-columns:1fr;gap:20px}
+      .hero-right{order:-1}
+      .products{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      nav{flex-wrap:wrap}
+      .two-col{grid-template-columns:1fr}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+
+    /* simple animations */
+    .reveal{opacity:0;transform:translateY(10px);animation:reveal 0.8s cubic-bezier(.2,.9,.2,1) forwards}
+    @keyframes reveal{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">VW</div>
+        <div>
+          <h1>Vibe Wrist</h1>
+          <div class="muted" style="font-size:12px">Precision. Presence. Personality.</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <button class="btn">Shop Now</button>
+        <button class="btn secondary">Log in</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-left reveal">
+          <h2>Watches that set the mood — Vibe Wrist</h2>
+          <p>Explore our curated collection of premium wristwear. Minimal, mechanical, and designed to amplify the moments you create — from daily hustle to that special night out.</p>
+          <div class="hero-actions">
+            <button class="btn">View Collection</button>
+            <button class="btn secondary">Learn More</button>
+          </div>
+
+          <div class="features" style="margin-top:22px">
+            <div class="feature">
+              <h4>Swiss Precision</h4>
+              <p>Reliable movements from trusted manufacturers with quality finishes.</p>
+            </div>
+            <div class="feature">
+              <h4>Timeless Design</h4>
+              <p>Classic silhouettes with modern details for every wrist.</p>
+            </div>
+            <div class="feature">
+              <h4>Free Shipping</h4>
+              <p>On all orders over $99 — with easy returns and lifetime support.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="watch-card">
+            <div class="badge">New</div>
+            <div class="watch-mock">Vibe Wrist — The Aero Edition</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="shop" class="section">
+        <h3>Featured Watches</h3>
+        <div class="products">
+
+          <article class="card reveal">
+            <div class="img">
+              <img src="https://edgewisestore.com/cdn/shop/files/DDCCFE99-BA1A-4904-A2E4-37BC58E455F7.webp?v=1746519641" alt="Aura Watch">
+            </div>
+            <div>
+              <h4>Aura Watch</h4>
+              <div class="product-meta">
+                <div class="price">$349</div>
+                <div class="stars">★★★★☆</div>
+              </div>
+              <p>Black dial, brushed stainless steel case, sapphire crystal, 5ATM water resistance.</p>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:auto">
+              <button class="btn" onclick="openModal('Aero — Midnight',349)">Add to cart</button>
+              <button class="btn secondary" onclick="openDetails('Aero — Midnight')">Details</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="img">
+              <img src="https://dials.pk/wp-content/uploads/2024/03/sk-112-9-1.jpg" alt="Skmei 1787">
+            </div>
+            <div>
+              <h4>Skmei 1787</h4>
+              <div class="product-meta">
+                <div class="price">$279</div>
+                <div class="stars">★★★★☆</div>
+              </div>
+              <p>Elegant cream dial with genuine leather strap and polished case finish.</p>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:auto">
+              <button class="btn" onclick="openModal('Classic — Champagne',279)">Add to cart</button>
+              <button class="btn secondary" onclick="openDetails('Classic — Champagne')">Details</button>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="img">
+              <img src="https://naviforcewatches.pk/wp-content/uploads/2025/07/IMG_0773.jpg" alt="Naviforce">
+            </div>
+            <div>
+              <h4> Naviforce </h4>
+              <div class="product-meta">
+                <div class="price">$399</div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>Sport chronograph with luminous hands and reinforced nylon strap.</p>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:auto">
+              <button class="btn" onclick="openModal('Volt — Green',399)">Add to cart</button>
+              <button class="btn secondary" onclick="openDetails('Volt — Green')">Details</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ABOUT + CONTACT -->
+      <section id="about" class="section two-col">
+        <div class="about reveal">
+          <h3>About Vibe Wrist</h3>
+          <p class="muted">Founded by watch aficionados who wanted more than a timekeeper, Vibe Wrist builds watches that speak. We combine careful material selection, modern engineering, and refined design to make pieces you'll reach for every morning.</p>
+          <ul style="margin-top:12px;list-style:disc;padding-left:18px;color:var(--muted)">
+            <li>2-year warranty on all mechanical components</li>
+            <li>Buy now, pay later — 3 interest-free installments</li>
+            <li>World-class customer support based in our HQ</li>
+          </ul>
+        </div>
+
+        <div id="contact" class="contact-form reveal">
+          <h3>Contact Us</h3>
+          <form onsubmit="event.preventDefault();submitForm();">
+            <label for="name">Full name</label>
+            <input id="name" name="name" placeholder="Jane Doe" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic">
+              <option>General question</option>
+              <option>Order support</option>
+              <option>Wholesale / partnership</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <button class="btn" type="submit">Send message</button>
+              <button class="btn secondary" type="reset">Reset</button>
+            </div>
+
+            <div id="formStatus" class="muted" style="margin-top:10px"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="logo" style="width:46px;height:46px;font-size:18px">VW</div>
+            <div>
+              <div style="font-weight:700">Vibe Wrist</div>
+              <div class="muted" style="font-size:13px">© <span id="year"></span> Vibe Wrist — All rights reserved</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="socials">
+            <div class="chip">Instagram</div>
+            <div class="chip">Twitter</div>
+            <div class="chip">YouTube</div>
+          </div>
+          <div class="muted">Made with ♥ for watch lovers</div>
+        </div>
+      </footer>
+
+    </main>
+  </
